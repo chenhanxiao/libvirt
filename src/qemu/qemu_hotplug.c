@@ -5942,6 +5942,12 @@ qemuDomainDetachDeviceLive(virDomainObjPtr vm,
             ret = qemuDomainRemoveDevice(driver, vm, &detach);
     }
 
+    if ((virDomainDeviceType)match->type == VIR_DOMAIN_DEVICE_NET) {
+        virDomainNetDefPtr net = detach.data.net;
+        if (net->script)
+            virNetDevRunEthernetScript(net->ifname, net->downscript);
+    }
+
  cleanup:
     if (!async)
         qemuDomainResetDeviceRemoval(vm);
