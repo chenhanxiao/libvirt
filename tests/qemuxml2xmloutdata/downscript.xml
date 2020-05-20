@@ -55,7 +55,7 @@
       <script path='/home/hehe.sh'/>
       <downscript path='/home/dada.sh'/>
       <model type='virtio'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x0a' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x0a' function='0x1'/>
     </interface>
     <input type='mouse' bus='virtio'>
       <driver iommu='on' ats='on' packed='on'/>
